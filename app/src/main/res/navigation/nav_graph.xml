@@ -7,8 +7,32 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.fgomes.trademap_clone.ui.LoginFragment"
+        android:name="com.fgomes.trademap_clone.presentation.ui.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_acaoListaFragment"
+            app:destination="@id/acaoListaFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/acaoListaFragment"
+        android:name="com.fgomes.trademap_clone.presentation.ui.fragments.AcaoListaFragment"
+        android:label="Principal"
+        tools:layout="@layout/fragment_acao_lista">
+        <action
+            android:id="@+id/action_acaoListaFragment_to_acaoDetalhesFragment"
+            app:destination="@id/acaoDetalhesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/acaoDetalhesFragment"
+        android:name="com.fgomes.trademap_clone.presentation.ui.fragments.AcaoDetalhesFragment"
+        android:label="fragment_acao_detalhes"
+        tools:layout="@layout/fragment_acao_detalhes" >
+        <argument
+            android:name="acao"
+            app:argType="com.fgomes.trademap_clone.domain.Acao" />
+    </fragment>
 
 </navigation>
